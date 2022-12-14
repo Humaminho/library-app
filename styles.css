@@ -4,6 +4,12 @@
     box-sizing: border-box;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+:root {
+    --black: #121212;
+    --dark-grey: #3C3C3C;
+    --white: #F2ECFF;
+    --green: #00C896;
+}
 body {
     height: 100vh;
     width: 100vw;
@@ -18,29 +24,60 @@ main {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     flex-grow: 1;
+
+    background: var(--black);
+    background: linear-gradient(180deg, rgba(18,18,18,1) 0%, rgba(0,0,0,1) 100%);
+    padding: 0px 100px;
+
 }
-.add {
+.buttons {
     width: 100%;
-    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 50px;
+    margin: 10px;
+}
+.buttons > button {
+    padding: 10px 30px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    color: var(--white);
+    transition: all 0.25s;
+}
+.buttons > button:hover {
+    color: white;
+    background-color: var(--green);
+    border-radius: 10px;
+}
+.buttons > button:nth-child(2):hover {
+    background-color: rgb(177, 0, 0);
 }
 .books {
     display: flex;
     flex-flow: row wrap;
+    gap: 20px;
 }
 .book {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     padding: 30px;
     gap: 10px;
-    background-color: salmon;
+
+    height: 300px;
+    width: 250px;
+    background-color: var(--white);
+    border-radius: 15px;
 }
 .book > button {
     align-self: center;
     width: 50%;
+    background-color: var(--green);
+
+    justify-self: flex-end;
 }
