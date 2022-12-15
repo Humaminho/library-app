@@ -10,6 +10,8 @@
     --white: #F2ECFF;
     --green: #00C896;
     --dark-green: #00ac81;
+    --red: #ff3e3e;
+    --red-hover: #d61d1d;
 }
 body {
     height: 100vh;
@@ -57,7 +59,7 @@ main {
     border-radius: 10px;
 }
 .buttons > button:nth-child(2):hover {
-    background-color: rgb(177, 0, 0);
+    background-color: var(--red);
 }
 .books {
     display: flex;
@@ -76,6 +78,10 @@ main {
     text-align: center;
     background-color: var(--white);
     border-radius: 15px;
+    transition: all 0.2s;
+}
+.book {
+    background-color: white;
 }
 .read {
     align-self: center;
@@ -93,7 +99,7 @@ main {
     background-color: var(--dark-green);
 }
 .remove {
-    background-color: rgb(242, 39, 39);
+    background-color: var(--red);
     color: white;
     height: 20px;
     width: 20px;
@@ -105,11 +111,33 @@ main {
 }
 .pop-up {
     position: fixed;
-    top:30%;
-    right: 50%;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.2s ease-in-out;
+    width: 450px;
     padding: 50px;
     background-color: white;
     border-radius: 10px;
+    z-index: 10;
+}
+.pop-up.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    background-color: rgb(0, 0, 0, .8);
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+}
+#overlay.active {
+    pointer-events: all;
+    opacity: 1;
 }
 #form {
     display: grid;
@@ -127,7 +155,7 @@ input {
     border-bottom: 2px solid var(--green);
     transition: all 0.2s;
     outline: none;
-    background-color: rgb(246, 246, 246);
+    background-color: rgb(250, 250, 250);
 }
 input:focus {
     border: 2px solid var(--green);
@@ -148,10 +176,13 @@ label {
     right: 15px;
     height: 20px;
     width: 20px;
-    background-color: rgb(242, 39, 39);
+    background-color: var(--red);
     color: white;
     border: none;
     border-radius: 50%;
+}
+#close-pop-up:hover {
+    background-color: var(--red-hover);
 }
 #form > button {
     grid-column: 1/-1;

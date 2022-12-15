@@ -1,7 +1,9 @@
 //ELEMENTS
 
-const addBtn = document.getElementById("add-book");
-const deleteBtn = document.getElementById("delete-all");
+const openPopUp = document.querySelector("[data-pop-up-target]");
+const closePopUp = document.querySelector("[data-close-btn]");
+const overlay = document.querySelector("#overlay");
+const deleteAll = document.getElementById("delete-all");
 
 const book = document.querySelector(".book");
 const title = document.querySelector(".title");
