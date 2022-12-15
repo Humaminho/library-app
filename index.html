@@ -13,46 +13,32 @@
     </header>
     <main>
         <div class="buttons">
-            <button><h2>+ Add book</h2></button>
-            <button><h2>x Delete all</h2></button>
+            <button id="add-book"><h2>+ Add book</h2></button>
+            <button id="delete-all"><h2>&times; Delete all</h2></button>
         </div>
         <div class="books">
             <div class="book">
-                <h2>Zbi</h2>
-                <h3>By: Nizar l9bani</h3>
-                <h4>355 pages</h4>
-                <button>Read</button>
-                <button>Remove</button>
-            </div>
-            <div class="book">
-                <h2>Zbi</h2>
-                <h3>By: Nizar l9bani</h3>
-                <h4>355 pages</h4>
-                <button>Read</button>
-                <button>Remove</button>
-            </div>
-            <div class="book">
-                <h2>Zbi</h2>
-                <h3>By: Nizar l9bani</h3>
-                <h4>355 pages</h4>
-                <button>Read</button>
-                <button>Remove</button>
-            </div>
-            <div class="book">
-                <h2>Zbi</h2>
-                <h3>By: Nizar l9bani</h3>
-                <h4>355 pages</h4>
-                <button>Read</button>
-                <button>Remove</button>
-            </div>
-            <div class="book">
-                <h2>Zbi</h2>
-                <h3>By: Nizar l9bani</h3>
-                <h4>355 pages</h4>
-                <button>Read</button>
-                <button>Remove</button>
+                <h2 class="title">The power of now!</h2>
+                <h3 class="author">By: Nizar l9bani</h3>
+                <h4 class="pages">355 pages</h4>
+                <button class="read">Read</button>
+                <button class="remove">✖</button>
             </div>
         </div>
     </main>
+    <div class="pop-up">
+        <form action="" id="form">
+            <label for="title">Title:</label>
+            <input type="text" id="title-input">
+            <label for="author">Author:</label>
+            <input type="text" id="author-input">
+            <label for="pages">Pages:</label>
+            <input type="text" id="pages-input">
+            <label for="read-input">Read:</label>
+            <input type="checkbox" id="read-input">
+            <button type="submit">+ Add book</button>
+        </form>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>

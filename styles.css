@@ -13,6 +13,7 @@
 body {
     height: 100vh;
     width: 100vw;
+    overflow-x:hidden
 }
 header {
     width: 100%;
@@ -24,7 +25,7 @@ main {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     flex-grow: 1;
 
@@ -38,8 +39,8 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px;
-    margin: 10px;
+    gap: 130px;
+    margin: 25px 0px;
 }
 .buttons > button {
     padding: 10px 30px;
@@ -59,25 +60,53 @@ main {
 }
 .books {
     display: flex;
+    justify-content: space-between;
     flex-flow: row wrap;
     gap: 20px;
 }
 .book {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-rows: 2fr 20px 20px 1fr;
     padding: 30px;
-    gap: 10px;
+    position: relative;
 
     height: 300px;
     width: 250px;
+    text-align: center;
     background-color: var(--white);
     border-radius: 15px;
 }
-.book > button {
+.read {
     align-self: center;
-    width: 50%;
+    width: 70%;
     background-color: var(--green);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
 
-    justify-self: flex-end;
+    justify-self: center;
+}
+.remove {
+    background-color: rgb(242, 39, 39);
+    color: white;
+    height: 20px;
+    width: 20px;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.pop-up {
+    position: fixed;
+    top:50%;
+    right: 50%;
+    padding: 50px;
+    background-color: white;
+}
+#form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
 }
