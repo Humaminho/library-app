@@ -9,6 +9,7 @@
     --dark-grey: #3C3C3C;
     --white: #F2ECFF;
     --green: #00C896;
+    --dark-green: #00ac81;
 }
 body {
     height: 100vh;
@@ -78,14 +79,18 @@ main {
 }
 .read {
     align-self: center;
+    justify-self: center;
     width: 70%;
+    padding: 10px;
     background-color: var(--green);
     border: none;
     border-radius: 5px;
-    padding: 10px;
     color: white;
-
-    justify-self: center;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+}
+.read:hover {
+    background-color: var(--dark-green);
 }
 .remove {
     background-color: rgb(242, 39, 39);
@@ -100,13 +105,66 @@ main {
 }
 .pop-up {
     position: fixed;
-    top:50%;
+    top:30%;
     right: 50%;
     padding: 50px;
     background-color: white;
+    border-radius: 10px;
 }
 #form {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(4, 1fr) 2fr;
+    row-gap: 10px;
+    column-gap: 20px;
+    align-items: end;
+}
+input {
+    padding: 5px;
+    font-size: inherit;
+    text-indent: 5px;
+    border: 2px solid white;
+    border-bottom: 2px solid var(--green);
+    transition: all 0.2s;
+    outline: none;
+    background-color: rgb(246, 246, 246);
+}
+input:focus {
+    border: 2px solid var(--green);
+    background-color: #fff;
+}
+input[type=checkbox] {
+    height: 20px;
+    position: relative;
+    right: 102px;
+    accent-color: var(--green);
+}
+label {
+    font-size: 1.3rem;
+}
+#close-pop-up {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(242, 39, 39);
+    color: white;
+    border: none;
+    border-radius: 50%;
+}
+#form > button {
+    grid-column: 1/-1;
+    justify-self: center;
+    padding: 10px;
+    width: 70%;
+    background-color: var(--green);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+}
+#form > button:hover {
+    background-color: var(--dark-green);
 }

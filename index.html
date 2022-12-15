@@ -18,8 +18,8 @@
         </div>
         <div class="books">
             <div class="book">
-                <h2 class="title">The power of now!</h2>
-                <h3 class="author">By: Nizar l9bani</h3>
+                <h2 class="title">The power of now</h2>
+                <h3 class="author">By Nizar l9bani</h3>
                 <h4 class="pages">355 pages</h4>
                 <button class="read">Read</button>
                 <button class="remove">✖</button>
@@ -27,14 +27,15 @@
         </div>
     </main>
     <div class="pop-up">
+        <button id="close-pop-up">✖</button>
         <form action="" id="form">
-            <label for="title">Title:</label>
+            <label for="title">Title</label>
             <input type="text" id="title-input">
-            <label for="author">Author:</label>
+            <label for="author">Author</label>
             <input type="text" id="author-input">
-            <label for="pages">Pages:</label>
-            <input type="text" id="pages-input">
-            <label for="read-input">Read:</label>
+            <label for="pages">Pages</label>
+            <input type="number" step="10" id="pages-input">
+            <label for="read-input">Read</label>
             <input type="checkbox" id="read-input">
             <button type="submit">+ Add book</button>
         </form>
