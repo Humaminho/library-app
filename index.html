@@ -13,7 +13,7 @@
     </header>
     <main>
         <div class="buttons">
-            <button id="add-book" data-pop-up-target=".pop-up"><h2>+ Add book</h2></button>
+            <button id="open-pop-up"><h2>+ Add book</h2></button>
             <button id="delete-all"><h2>&times; Delete all</h2></button>
         </div>
         <div class="books">
@@ -26,18 +26,19 @@
             </div>
         </div>
     </main>
-    <div class="pop-up" >
-        <button id="close-pop-up" data-close-btn>✖</button>
-        <form action="" id="form">
+    <!-- FIX YOUR FORM -->
+    <div class="pop-up" > 
+        <button id="close-pop-up">✖</button>
+        <form action="index.html" method="post" id="form">
             <label for="title-input">Title</label>
             <input type="text" id="title-input">
             <label for="author-input">Author</label>
             <input type="text" id="author-input">
             <label for="pages-input">Pages</label>
-            <input type="number" step="10" id="pages-input">
+            <input type="number" id="pages-input">
             <label for="read-input">Read</label>
             <input type="checkbox" id="read-input">
-            <button type="submit">+ Add book</button>
+            <button id="add-book" type="submit">+ Add book</button>
         </form>
     </div>
     <div id="overlay"></div>

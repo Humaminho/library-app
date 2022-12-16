@@ -1,9 +1,16 @@
 //ELEMENTS
+const log = console.log;
 
-const openPopUp = document.querySelector("[data-pop-up-target]");
-const closePopUp = document.querySelector("[data-close-btn]");
-const overlay = document.querySelector("#overlay");
+const openPopUpBtn = document.getElementById("open-pop-up")
+const closePopUpBtn = document.getElementById("close-pop-up");
+const overlay = document.getElementById("overlay");
 const deleteAll = document.getElementById("delete-all");
+
+const titleValue = document.getElementById("title-input").value;
+const authorValue = document.getElementById("author-input").value;
+const pagesValue = document.getElementById("pages-input").value;
+const readValue = document.getElementById("title-input").value;
+const addBookButton = document.getElementById("add-book");
 
 const book = document.querySelector(".book");
 const title = document.querySelector(".title");
@@ -20,11 +27,34 @@ const remove = document.querySelector(".remove");
 //     isRead: true,
 // };
 
-const log = console.log;
+
 
 let myLibrary = []; //array of objects (books)
 
-class Book {
+function openPopUp(popUp) { //show and hide pop-up
+    if ( popUp == null) return;
+    popUp.classList.add("active");
+    overlay.classList.add("active");
+};
+function closePopUp(popUp) {
+    if ( popUp == null) return;
+    popUp.classList.remove("active");
+    overlay.classList.remove("active");
+};
+
+openPopUpBtn.addEventListener("click", () => {
+    const popUp = document.querySelector(".pop-up");
+    openPopUp(popUp);
+});
+closePopUpBtn.addEventListener("click", () => {
+    const popUp = document.querySelector(".pop-up");
+    closePopUp(popUp);
+});
+overlay.addEventListener("click", () => {
+    const popUp = document.querySelector(".pop-up");
+    closePopUp(popUp);
+});
+class Book {  //book constructor
     constructor(title,author,pages,isRead) {
         this.title = title;
         this.author = author;
@@ -32,23 +62,18 @@ class Book {
         this.isRead = isRead;
     };
 };
+function render() {
 
-openPopUp.addEventListener("click", () => {
-    const popUp = document.querySelector(button.dataset.popUpTarget);
-    openPopUp(popUp);
+};
+
+addBookButton.addEventListener("click", () => {
+    createBook();
 });
-function openPopUp(popUp,overlay) {
-    if ( popUp == null) return;
-    popUp.classList.add("active");
-    overlay.classList.add("active");
-};
-function closePopUp(popUp,overlay) {
-    if ( popUp == null) return;
-    popUp.classList.remove("active");
-    overlay.classList.remove("active");
-};
-function addBookToLibrary() {
 
+function createBook(titleValue, authorValue, pagesValue, readValue) {
+    if (!titleValue && !authorValue && !pagesValue) log("zbi");
+    const book1 = new Book(titleValue, authorValue, pagesValue, readValue);
+    log(book1);
 };
 
 
