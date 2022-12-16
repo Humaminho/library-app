@@ -33,8 +33,20 @@ class Book {
     };
 };
 
-const zbi = new Book("messi","li7wak","55","true");
-log(zbi)
+openPopUp.addEventListener("click", () => {
+    const popUp = document.querySelector(button.dataset.popUpTarget);
+    openPopUp(popUp);
+});
+function openPopUp(popUp,overlay) {
+    if ( popUp == null) return;
+    popUp.classList.add("active");
+    overlay.classList.add("active");
+};
+function closePopUp(popUp,overlay) {
+    if ( popUp == null) return;
+    popUp.classList.remove("active");
+    overlay.classList.remove("active");
+};
 function addBookToLibrary() {
 
 };
