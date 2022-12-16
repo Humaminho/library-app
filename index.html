@@ -29,17 +29,17 @@
     <!-- FIX YOUR FORM -->
     <div class="pop-up" > 
         <button id="close-pop-up">✖</button>
-        <form action="index.html" method="post" id="form">
+        <div id="form">
             <label for="title-input">Title</label>
-            <input type="text" id="title-input">
+            <input type="text" name="title" id="title-input" autofocus="on" placeholder="Al Quran">
             <label for="author-input">Author</label>
-            <input type="text" id="author-input">
+            <input type="text" name="author" id="author-input" placeholder="Allah">
             <label for="pages-input">Pages</label>
-            <input type="number" id="pages-input">
+            <input type="number" name="pages" id="pages-input" placeholder="604">
             <label for="read-input">Read</label>
-            <input type="checkbox" id="read-input">
-            <button id="add-book" type="submit">+ Add book</button>
-        </form>
+            <input type="checkbox" name="read" value="true" id="read-input">
+            <button id="add-book">+ Add book</button>
+        </div>
     </div>
     <div id="overlay"></div>
     <script src="app.js"></script>

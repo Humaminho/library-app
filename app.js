@@ -1,15 +1,12 @@
 //ELEMENTS
 const log = console.log;
 
+const popUp = document.querySelector(".pop-up");
 const openPopUpBtn = document.getElementById("open-pop-up")
 const closePopUpBtn = document.getElementById("close-pop-up");
 const overlay = document.getElementById("overlay");
 const deleteAll = document.getElementById("delete-all");
 
-const titleValue = document.getElementById("title-input").value;
-const authorValue = document.getElementById("author-input").value;
-const pagesValue = document.getElementById("pages-input").value;
-const readValue = document.getElementById("title-input").value;
 const addBookButton = document.getElementById("add-book");
 
 const book = document.querySelector(".book");
@@ -27,8 +24,6 @@ const remove = document.querySelector(".remove");
 //     isRead: true,
 // };
 
-
-
 let myLibrary = []; //array of objects (books)
 
 function openPopUp(popUp) { //show and hide pop-up
@@ -43,15 +38,12 @@ function closePopUp(popUp) {
 };
 
 openPopUpBtn.addEventListener("click", () => {
-    const popUp = document.querySelector(".pop-up");
     openPopUp(popUp);
 });
 closePopUpBtn.addEventListener("click", () => {
-    const popUp = document.querySelector(".pop-up");
     closePopUp(popUp);
 });
 overlay.addEventListener("click", () => {
-    const popUp = document.querySelector(".pop-up");
     closePopUp(popUp);
 });
 class Book {  //book constructor
@@ -70,10 +62,26 @@ addBookButton.addEventListener("click", () => {
     createBook();
 });
 
-function createBook(titleValue, authorValue, pagesValue, readValue) {
-    if (!titleValue && !authorValue && !pagesValue) log("zbi");
-    const book1 = new Book(titleValue, authorValue, pagesValue, readValue);
-    log(book1);
+function createBook() {
+    let titleValue = document.getElementById("title-input");
+    let authorValue = document.getElementById("author-input");
+    let pagesValue = document.getElementById("pages-input");
+    let readValue = document.querySelector('input[type="checkbox"]:checked');
+
+    if (!titleValue.value | !authorValue.value | !pagesValue.value) return;
+    if (readValue) {
+        readValue = "true";
+    } else readValue = "false";
+
+    const book = new Book(titleValue.value, authorValue.value, pagesValue.value, readValue);
+    myLibrary.push(book)
+
+    log(myLibrary)
+    titleValue.value = "";
+    authorValue.value = "";
+    pagesValue.value = "";
+
+    document.getElementById("read-input").checked = false;
+
+    closePopUp(popUp);
 };
-
-
