@@ -79,42 +79,51 @@ function createBook() {
     closePopUp(popUp);
 };
 
-const firstBook = new Book("Anti Fragile", "Marcus Aurelius","520","false")
-
-log(firstBook)
-
-function renderBook(bookObj) {
+function renderBooks(myLibrary) {
     const books = document.querySelector(".books")
-    const book = document.createElement("div");
-    book.classList = "book";
-    books.appendChild(book);
 
-    const title = document.createElement("div");
-    title.innerText = bookObj.title;
-    title.classList = "title";
-    book.appendChild(title);
+    for ( let i = 0 ; i < myLibrary.length ; i++ ) {
+        
+        const book = document.createElement("div");
+        book.
+        books.appendChild(book);
+        book.classList = "book";
+        
+        const title = document.createElement("div");
+        title.innerText = myLibrary[i].title;
+        book.appendChild(title);
+        title.classList = "title";
 
-    const author = document.createElement("div");
-    author.innerText = bookObj.author;
-    author.classList = "author";
-    book.appendChild(author);
+        const author = document.createElement("div");
+        author.innerText = `By ${myLibrary[i].author}`;
+        book.appendChild(author);
+        author.classList = "author";
 
-    const pages = document.createElement("div");
-    pages.innerText = bookObj.pages;
-    pages.classList = "pages";
-    book.appendChild(pages);
+        const pages = document.createElement("div");
+        pages.innerText = `${myLibrary[i].pages} pages`;
+        pages.classList = "pages";
+        book.appendChild(pages);
     
-    const remove = document.createElement("button");
-    remove.innerText = "✖";
-    remove.classList = "remove";
-    book.appendChild(remove);
+        const remove = document.createElement("button");
+        remove.innerText = "✖";
+        remove.classList = "remove";
+        book.appendChild(remove);
     
-    const read = document.createElement("button");
-    if ( bookObj.isRead == "true" ) {
-        read.innerText = "Read";
-    } else read.innerText = "Not read";
-    read.classList = "read";
-    book.appendChild(read);
-
+        const read = document.createElement("button");
+        if ( myLibrary[i].isRead == "true" ) {
+            read.innerText = "Read";
+        } else read.innerText = "Not read";
+        read.classList = "read";
+        book.appendChild(read);
+        };
 };
-renderBook(firstBook);
+
+const book1 = new Book("Quran", "allah", "604", "true");
+const book2 = new Book("Anti Fragile", "Marcus Aurelius","520","false")
+
+myLibrary.push(book1)
+myLibrary.push(book2)
+
+log(myLibrary)
+
+renderBook(myLibrary)
