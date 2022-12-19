@@ -14,14 +14,18 @@ body {
     --black: #101010;
     --dark-grey: #3C3C3C;
     --white: #F2ECFF;
-    --green: #00C896;
-    --dark-green: #00ac81;
+    --green: rgb(0, 200, 150);
+    --dark-green: rgb(0, 172, 129);
     --red: #fd5555;
     --red-hover: #d61d1d;
     --chill-blue: rgb(65, 93, 247);
     --dim-blue: rgb(90, 92, 127);
     --blue-hover: rgb(40, 63, 191);
 }
+::selection {
+    color: white;
+    background: rgb(78,173,130);
+  }
 body {
     min-height: 100%;
     width: 100vw;
@@ -175,7 +179,7 @@ main {
     width: 450px;
     padding: 50px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 20px;
     z-index: 10;
 }
 .pop-up.active {
@@ -227,6 +231,7 @@ input[type=checkbox] {
 }
 label {
     font-size: 1.3rem;
+    color: var(--black);
 }
 #close-pop-up {
     position: absolute;
@@ -246,10 +251,10 @@ label {
     grid-column: 1/-1;
     justify-self: center;
     padding: 10px;
-    width: 70%;
+    width: 50%;
     background-color: var(--green);
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     color: white;
     font-size: 1.2rem;
     transition: all 0.2s;
