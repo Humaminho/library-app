@@ -17,13 +17,6 @@ const pages = document.querySelector(".pages");
 const read = document.querySelector(".read");
 const remove = document.querySelector(".remove");
 
-// const prototypeBook = {
-//     title: "The first book",
-//     author: "Li 7wak",
-//     pages: "800",
-//     isRead: true,
-// };
-
 let myLibrary = []; //array of objects (books)
 
 function openPopUp(popUp) { //show and hide pop-up
@@ -74,14 +67,54 @@ function createBook() {
     } else readValue = "false";
 
     const book = new Book(titleValue.value, authorValue.value, pagesValue.value, readValue);
-    myLibrary.push(book)
+    myLibrary.push(book);
 
-    log(myLibrary)
+    log(myLibrary);
+    // Clear inputs:
     titleValue.value = "";
     authorValue.value = "";
     pagesValue.value = "";
-
     document.getElementById("read-input").checked = false;
 
     closePopUp(popUp);
 };
+
+const firstBook = new Book("Anti Fragile", "Marcus Aurelius","520","false")
+
+log(firstBook)
+
+function renderBook(bookObj) {
+    const books = document.querySelector(".books")
+    const book = document.createElement("div");
+    book.classList = "book";
+    books.appendChild(book);
+
+    const title = document.createElement("div");
+    title.innerText = bookObj.title;
+    title.classList = "title";
+    book.appendChild(title);
+
+    const author = document.createElement("div");
+    author.innerText = bookObj.author;
+    author.classList = "author";
+    book.appendChild(author);
+
+    const pages = document.createElement("div");
+    pages.innerText = bookObj.pages;
+    pages.classList = "pages";
+    book.appendChild(pages);
+    
+    const remove = document.createElement("button");
+    remove.innerText = "✖";
+    remove.classList = "remove";
+    book.appendChild(remove);
+    
+    const read = document.createElement("button");
+    if ( bookObj.isRead == "true" ) {
+        read.innerText = "Read";
+    } else read.innerText = "Not read";
+    read.classList = "read";
+    book.appendChild(read);
+
+};
+renderBook(firstBook);
