@@ -5,10 +5,10 @@ const popUp = document.querySelector(".pop-up");
 const openPopUpBtn = document.getElementById("open-pop-up")
 const closePopUpBtn = document.getElementById("close-pop-up");
 const overlay = document.getElementById("overlay");
-const deleteAll = document.getElementById("delete-all");
-
+const deleteAllBtn = document.getElementById("delete-all");
 const addBookButton = document.getElementById("add-book");
 
+const books = document.querySelector(".books")
 const book = document.querySelector(".book");
 const title = document.querySelector(".title");
 const author = document.querySelector(".author");
@@ -47,9 +47,6 @@ class Book {  //book constructor
         this.isRead = isRead;
     };
 };
-function render() {
-
-};
 
 addBookButton.addEventListener("click", () => {
     createBook();
@@ -69,23 +66,25 @@ function createBook() {
     const book = new Book(titleValue.value, authorValue.value, pagesValue.value, readValue);
     myLibrary.push(book);
 
-    log(myLibrary);
     // Clear inputs:
     titleValue.value = "";
     authorValue.value = "";
     pagesValue.value = "";
     document.getElementById("read-input").checked = false;
+    books.innerText = "";
 
+    renderBooks(myLibrary);
     closePopUp(popUp);
 };
 
 function renderBooks(myLibrary) {
-    const books = document.querySelector(".books")
+    
+    books.innerText = "";
 
     for ( let i = 0 ; i < myLibrary.length ; i++ ) {
         
         const book = document.createElement("div");
-        book.
+        book.setAttribute("data-index", `${i}`);
         books.appendChild(book);
         book.classList = "book";
         
@@ -108,22 +107,67 @@ function renderBooks(myLibrary) {
         remove.innerText = "✖";
         remove.classList = "remove";
         book.appendChild(remove);
+        remove.addEventListener("click", () => {
+            removeBook(book);
+        });
     
         const read = document.createElement("button");
         if ( myLibrary[i].isRead == "true" ) {
             read.innerText = "Read";
-        } else read.innerText = "Not read";
-        read.classList = "read";
-        book.appendChild(read);
+            read.classList.remove("not-read");
+            read.classList.add("read");
+        } else {
+            read.innerText = "Not read";
+            read.classList.remove("read");
+            read.classList.add("not-read")
         };
+        read.addEventListener("click", () => {
+            toggleReadState(book)
+        });
+        book.appendChild(read);
+    };
+    if ( books.innerText == "" ) {
+        books.innerText = "Click Add book to create your first book!"
+        books.classList.remove("books");
+        books.classList.add("books-empty");
+    } else {
+        books.classList.remove("books-empty");
+        books.classList.add("books");
+    };
 };
+
+function removeBook(book) {
+    const targetIndex = book.getAttribute('data-index');
+    myLibrary.splice(targetIndex, 1);
+    log(myLibrary);
+    renderBooks(myLibrary);
+};
+
+function toggleReadState(book) {
+
+    const targetIndex = book.getAttribute('data-index');
+    let readState = myLibrary[targetIndex].isRead;
+    if (readState == "true") {
+        log(readState)
+        readState = "false";
+        log(readState)
+        renderBooks(myLibrary);
+    };
+};
+
+deleteAllBtn.addEventListener("click", () => {
+    myLibrary = [];
+    renderBooks(myLibrary);
+});
 
 const book1 = new Book("Quran", "allah", "604", "true");
 const book2 = new Book("Anti Fragile", "Marcus Aurelius","520","false")
+const book3 = new Book("The Power Of Now", "Eckart", "301", "true")
 
 myLibrary.push(book1)
 myLibrary.push(book2)
+myLibrary.push(book3)
 
 log(myLibrary)
 
-renderBook(myLibrary)
+renderBooks(myLibrary)

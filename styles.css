@@ -67,6 +67,17 @@ main {
     flex-flow: row wrap;
     gap: 20px;
 }
+.books-empty {
+    font-size: 3rem;
+    color: var(--white);
+    padding-top: 120px;
+    transition: all 0.3s ease-in-out;
+    height: 100%;
+}
+.books-empty:hover {
+    color: white;
+    font-size: 3.3rem;
+}
 .book {
     display: grid;
     grid-template-rows: 2fr 20px 20px 1fr;
@@ -83,20 +94,28 @@ main {
 .book {
     background-color: white;
 }
-.read {
+.read, .not-read {
     align-self: center;
     justify-self: center;
     width: 70%;
     padding: 10px;
-    background-color: var(--green);
     border: none;
     border-radius: 5px;
     color: white;
     font-size: 1.1rem;
     transition: all 0.2s;
 }
+.read {
+    background-color: var(--green);
+}
 .read:hover {
     background-color: var(--dark-green);
+}
+.not-read {
+    background-color: var(--red);
+}
+.not-read:hover {
+    background-color: var(--red-hover);
 }
 .remove {
     background-color: var(--red);
