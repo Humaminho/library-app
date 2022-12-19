@@ -17,9 +17,9 @@ const pages = document.querySelector(".pages");
 const read = document.querySelector(".read");
 const remove = document.querySelector(".remove");
 
-let myLibrary = []; //array of objects (books)
+let myLibrary = [];
 
-function openPopUp(popUp) { //show and hide pop-up
+function openPopUp(popUp) {
     if ( popUp == null) return;
     popUp.classList.add("active");
     overlay.classList.add("active");
@@ -156,7 +156,4 @@ deleteAllBtn.addEventListener("click", () => {
     renderBooks(myLibrary);
 });
 
-const quran = new Book("Quran", "allah", "604", "false");
-
-myLibrary.push(quran)
 renderBooks(myLibrary)
