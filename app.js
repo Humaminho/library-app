@@ -144,15 +144,11 @@ function removeBook(book) {
 };
 
 function toggleReadState(book) {
-
     const targetIndex = book.getAttribute('data-index');
-    let readState = myLibrary[targetIndex].isRead;
-    if (readState == "true") {
-        log(readState)
-        readState = "false";
-        log(readState)
-        renderBooks(myLibrary);
-    };
+    if (myLibrary[targetIndex].isRead == "true") {
+        myLibrary[targetIndex].isRead = "false";
+    } else myLibrary[targetIndex].isRead = "true";
+    renderBooks(myLibrary);
 };
 
 deleteAllBtn.addEventListener("click", () => {
@@ -160,14 +156,7 @@ deleteAllBtn.addEventListener("click", () => {
     renderBooks(myLibrary);
 });
 
-const book1 = new Book("Quran", "allah", "604", "true");
-const book2 = new Book("Anti Fragile", "Marcus Aurelius","520","false")
-const book3 = new Book("The Power Of Now", "Eckart", "301", "true")
+const quran = new Book("Quran", "allah", "604", "false");
 
-myLibrary.push(book1)
-myLibrary.push(book2)
-myLibrary.push(book3)
-
-log(myLibrary)
-
+myLibrary.push(quran)
 renderBooks(myLibrary)
