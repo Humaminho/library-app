@@ -1,4 +1,3 @@
-//ELEMENTS
 const log = console.log;
 
 const popUp = document.querySelector(".pop-up");
@@ -156,4 +155,4 @@ deleteAllBtn.addEventListener("click", () => {
     renderBooks(myLibrary);
 });
 
-renderBooks(myLibrary)
+renderBooks(myLibrary);
