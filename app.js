@@ -1,4 +1,5 @@
 import Book from "/class.js"
+
 const log = console.log;
 
 const popUp = document.querySelector(".pop-up");
