@@ -1,3 +1,4 @@
+import Book from "/class.js"
 const log = console.log;
 
 const popUp = document.querySelector(".pop-up");
@@ -38,14 +39,6 @@ closePopUpBtn.addEventListener("click", () => {
 overlay.addEventListener("click", () => {
     closePopUp(popUp);
 });
-class Book {  //book constructor
-    constructor(title,author,pages,isRead) {
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
-        this.isRead = isRead;
-    };
-};
 
 addBookButton.addEventListener("click", () => {
     createBook();

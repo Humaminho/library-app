@@ -1,0 +1,19 @@
+{
+  "name": "library-app",
+  "version": "1.0.0",
+  "description": "Simple JS library app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Humaminho/library-app.git"
+  },
+  "author": "Humam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Humaminho/library-app/issues"
+  },
+  "homepage": "https://github.com/Humaminho/library-app#readme"
+}
