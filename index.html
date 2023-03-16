@@ -27,17 +27,17 @@
     </main>
     <div class="pop-up" > 
         <button id="close-pop-up">✖</button>
-        <div id="form">
+        <form id="form" onsubmit="return false" action="pleaseturnonjavascript.html">
             <label for="title-input">Title</label>
-            <input type="text" name="title" id="title-input" autofocus="on" placeholder="Al Quran">
+            <input type="text" required name="title" id="title-input" autofocus="on" placeholder="Al Quran">
             <label for="author-input">Author</label>
-            <input type="text" name="author" id="author-input" placeholder="Allah">
+            <input type="text"  required name="author" id="author-input" placeholder="Allah">
             <label for="pages-input">Pages</label>
-            <input type="number" name="pages" id="pages-input" placeholder="604">
+            <input type="number"  required name="pages" id="pages-input" placeholder="604">
             <label for="read-input">Read</label>
             <input type="checkbox" name="read" value="true" id="read-input">
-            <button id="add-book">+ Add book</button>
-        </div>
+            <button type="submit" id="add-book">+ Add book</button>
+        </form>
     </div>
     <div id="overlay"></div>
     <script src="app.js" type="module"></script>
